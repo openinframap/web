@@ -48,7 +48,17 @@ function init() {
     'Oil & Gas': 'petroleum_',
     'Water': 'water_',
   };
-  const layers_enabled = ['Power', 'Telecoms', 'Oil & Gas', 'Water'];
+  const layers_enabled_default = ['Power', 'Telecoms', 'Oil & Gas', 'Water'];
+  const layer_enablers = {'P':'Power', 'S': 'Solar Generation', 'T':'Telecoms', 'O':'Oil & Gas', 'W':'Water'};
+  const params = new URLSearchParams(location.search);
+  var layers_enabled = [];
+  if(params.has('layers')){
+    for(var letter of params.get('layers'))
+      if(letter in layer_enablers)
+        layers_enabled.push(layer_enablers[letter]);
+  }
+  if(layers_enabled.length==0)
+    layers_enabled = layers_enabled_default;
   const layer_switcher = new LayerSwitcher(layers, layers_enabled);
 
   map_style.layers = style_base.concat(oim_layers);
