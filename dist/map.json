@@ -7,7 +7,7 @@
   "format": "pbf",
   "minzoom": 2,
   "maxzoom": 17,
-  "tiles": ["https://openstreetmap.doriangaliana.fr/tiles/{z}/{x}/{y}.pbf"],
+  "tiles": ["http://openstreetmap.doriangaliana.fr/tiles/{z}/{x}/{y}.pbf"],
   "vector_layers": [
 	{"id": "power_line", "description": "Power lines and cables", "fields": {}},
 	{"id": "power_tower", "description": "Power towers and poles", "fields": {}},
