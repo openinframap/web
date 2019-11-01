@@ -52,12 +52,14 @@ function init() {
   const layer_switcher = new LayerSwitcher(layers, layers_enabled);
 
   map_style.layers = style_base.concat(oim_layers);
-
+/*
   if (DEV) {
     map_style['sprite'] = 'http://localhost:8080/style/sprite';
   } else {
-    map_style['sprite'] = 'https://openinframap.org/style/sprite';
+    map_style['sprite'] = 'style/sprite';
   }
+*/
+  map_style['sprite'] = 'style/sprite';
 
   var map = new mapboxgl.Map({
     container: 'map',
