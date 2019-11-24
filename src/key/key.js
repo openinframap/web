@@ -182,7 +182,7 @@ class KeyControl {
     let rows = [
       ['Cable', svgLineFromLayer(comms_layers, 'telecoms_line')],
       ['Tower/Mast', this.sprite('comms_tower')],
-      ['Datacenter/Exchange', svgRectFromLayer(comms_layers, 'telecoms_data_center')],
+      ['Datacenter/Exchange', svgRectFromLayer(comms_layers, 'telecoms_sites')],
     ];
     let table = list('table', Tr);
     table.update(rows);

@@ -19,11 +19,11 @@ const layers = [
   },
   {
     zorder: 140,
-    id: 'telecoms_data_center',
+    id: 'telecoms_sites',
     type: 'fill',
     source: 'openinframap',
     minzoom: 10,
-    'source-layer': 'telecoms_data_center',
+    'source-layer': 'telecoms_sites',
     paint: {
       'fill-opacity': 0.3,
       'fill-color': '#7D59AB',
@@ -32,6 +32,23 @@ const layers = [
   },
   {
     zorder: 141,
+    id: 'telecoms_sites_points',
+    type: 'circle',
+    source: 'openinframap',
+    minzoom: 10,
+    'source-layer': 'telecoms_sites_points',
+    paint: {
+      'circle-radius': 6,
+      'circle-color': "#00FF00",
+      'circle-stroke-width': ['interpolate', ['linear'], ['zoom'],
+          5, 0,
+          6, 0.01,
+          12, 0.7,
+      ]
+    },
+  },
+  {
+    zorder: 142,
     id: 'telecoms_mast',
     type: 'symbol',
     source: 'openinframap',
@@ -64,11 +81,11 @@ const layers = [
     },
   },
   {
-    id: 'telecoms_data_center_symbol',
+    id: 'telecoms_sites_symbol',
     type: 'symbol',
     source: 'openinframap',
     minzoom: 11,
-    'source-layer': 'telecoms_data_center',
+    'source-layer': 'telecoms_sites',
     paint: text_paint,
     layout: {
       'text-field': operator_text,
