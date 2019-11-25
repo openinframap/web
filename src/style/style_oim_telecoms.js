@@ -1,5 +1,61 @@
 import {text_paint, operator_text} from './style_oim_common.js';
+// Colors
+const medium_scale = [
+  ['fibre', '#1c9100'],
+  ['copper', '#ff8900'],
+  ['coaxial', '#136fff'],
+  [null,'#7A7A85']
+]
 
+const radius_scale = [
+  ["exchange", 5],
+  ["connection_point", 3],
+  ["data_center", 6],
+  [null,2]
+]
+
+// Predicates
+
+// Functions
+function medium_color() {
+  let medium_fct = ['match', ["get", "telecom:medium"]];
+  
+  for (let row of medium_scale) {
+    if (row[0] == null){
+      medium_fct.push(row[1]);
+      continue;
+    }
+    medium_fct.push(row[0]);
+    medium_fct.push(row[1]);
+  }
+
+  return medium_fct;
+}
+
+function telecom_radius (){
+  let radius_fct = ["match", ["get", "telecom"]];
+
+  for (let row of radius_scale) {
+    if (row[0] == null){
+      radius_fct.push(row[1]);
+      continue;
+    }
+    radius_fct.push(row[0]);
+    radius_fct.push(row[1]);
+  }
+
+  return [
+    'interpolate',
+    ['linear'],
+    ['zoom'],
+    5, 1,
+    12, radius_fct
+  ];
+}
+
+const medium_text_paint = Object.assign({'text-color':medium_color()},text_paint);
+
+// Layers
 const layers = [
   {
     zorder: 40,
@@ -38,12 +94,13 @@ const layers = [
     minzoom: 10,
     'source-layer': 'telecoms_sites_points',
     paint: {
-      'circle-radius': 6,
-      'circle-color': "#00FF00",
+      'circle-radius': telecom_radius(),
+      'circle-color': medium_color(),
       'circle-stroke-width': ['interpolate', ['linear'], ['zoom'],
           5, 0,
-          6, 0.01,
-          12, 0.7,
+          6, 0.1,
+          8, 0.5,
+          15, 1
       ]
     },
   },
@@ -86,7 +143,7 @@ const layers = [
     source: 'openinframap',
     minzoom: 11,
     'source-layer': 'telecoms_sites',
-    paint: text_paint,
+    paint: medium_text_paint,
     layout: {
       'text-field': operator_text,
       'text-size': {

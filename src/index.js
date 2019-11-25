@@ -53,7 +53,8 @@ function init() {
 
   map_style.layers = style_base.concat(oim_layers);
   if (DEV) {
-    map_style['sprite'] = 'http://localhost:8080/style/sprite';
+    map_style['sprite'] = 'http://openstreetmap.doriangaliana.fr/style/sprite';
+    //map_style['sprite'] = 'http://localhost:8080/style/sprite';
   } else {
     map_style['sprite'] = 'http://openstreetmap.doriangaliana.fr/style/sprite';
   }
