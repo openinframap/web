@@ -16,6 +16,29 @@ const radius_scale = [
 
 // Predicates
 
+const sites_visible_p = ["any",
+  ["==", ["get", "telecom"], "exchange"],
+  ["all",
+    ["==", ["get","telecom"],"connection_point"],
+    [">", ["zoom"], 11]
+  ]
+]
+
+// Determine the minimum zoom a point is visible at (before it can be seen as an
+// area), based on the area of the substation.
+const sites_point_visible_p = ["any",
+  ["==", ["coalesce", ["get", "area"], 0], 0], // Area = 0 - mapped as node
+  ["all",
+    ["<", ["coalesce", ["get", "area"], 0], 100],
+    ["<", ["zoom"], 16]
+  ],
+  ["all",
+    ["<", ["coalesce", ["get", "area"], 0], 250],
+    ["<", ["zoom"], 15]
+  ],
+  ["<", ["zoom"], 13]
+]
+
 // Functions
 function medium_color() {
   let medium_fct = ['match', ["get", "telecom:medium"]];
@@ -82,7 +105,7 @@ const layers = [
     'source-layer': 'telecoms_sites',
     paint: {
       'fill-opacity': 0.3,
-      'fill-color': '#7D59AB',
+      'fill-color': medium_color(),
       'fill-outline-color': 'rgba(0, 0, 0, 1)',
     },
   },
@@ -90,6 +113,7 @@ const layers = [
     zorder: 141,
     id: 'telecoms_sites_points',
     type: 'circle',
+    filter: ["all", sites_visible_p, sites_point_visible_p],
     source: 'openinframap',
     minzoom: 10,
     'source-layer': 'telecoms_sites_points',
