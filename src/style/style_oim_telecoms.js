@@ -1,4 +1,4 @@
-import {text_paint, operator_text} from './style_oim_common.js';
+import {text_paint, operator_text, operator_label} from './style_oim_common.js';
 // Colors
 const medium_scale = [
   ['fibre', '#1c9100'],
@@ -15,7 +15,6 @@ const radius_scale = [
 ]
 
 // Predicates
-
 const sites_visible_p = ["any",
   ["==", ["get", "telecom"], "exchange"],
   ["all",
@@ -23,6 +22,40 @@ const sites_visible_p = ["any",
     [">", ["zoom"], 11]
   ]
 ]
+
+const sites_label_detail = ["case",
+    ['!=', ['get', 'ref:FR:PTT'], ''],
+      ["concat",['get', 'ref:FR:PTT'], operator_label],
+    ['!=', ['get', 'ref:FR:ARCEP'], ''],
+      ["concat", ['get', 'ref:FR:ARCEP'], operator_label],
+    ['!=', ['get', 'name'], ''],
+      ["concat",["get", "name"], operator_label],
+    ["case",
+      ["all", ['==', ['get','telecom'], 'exchange'], ['==', ['get','telecom:medium'], 'fibre']],
+        "NRO",
+      ["all", ['==', ['get','telecom'], 'exchange'], ['==', ['get','telecom:medium'], 'copper']],
+	"NRA",
+      ['==', ['get','telecom'], 'exchange'],
+        "Central",
+      ['==', ['get','telecom'], 'connection_point'],
+        "SR",
+      "Site"
+    ]
+];
+
+const sites_label_visible_p = ["any",
+  ["all", 
+    ["==", ["get", "telecom"], "exchange"],
+    [">", ["zoom"], 13]
+  ],
+  [">", ["zoom"], 14]
+]
+
+const sites_label = ["step",
+  ["zoom"],
+  ["get", "name"],
+  12, sites_label_detail
+];
 
 // Determine the minimum zoom a point is visible at (before it can be seen as an
 // area), based on the area of the substation.
@@ -165,16 +198,17 @@ const layers = [
     id: 'telecoms_sites_symbol',
     type: 'symbol',
     source: 'openinframap',
-    minzoom: 11,
-    'source-layer': 'telecoms_sites',
+    filter: sites_label_visible_p,
+    minzoom: 10,
+    'source-layer': 'telecoms_sites_points',
     paint: medium_text_paint,
     layout: {
-      'text-field': operator_text,
+      'text-field': sites_label,
       'text-size': {
         "stops": [
           [11, 0],
-          [13, 0],
-          [13.01, 10]
+          [12, 0],
+          [12.01, 10]
         ],
       },
       'text-offset': [0, 1],
