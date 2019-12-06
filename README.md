@@ -18,12 +18,13 @@ Tou need to link it to Nginx directory and eventually edit the server_name and l
 A few files need to be edited to match the server configuration
 * dist/map.json : tiles URL
 * src/index.js : Adjust map_style.sprite URL
+* src/style/style.json : Adjust URL to map.json in openinframap source
 
 # Running
 
 To launch the server and makes the UI available, run the simple :
 
-    npm start
+    npm build
 
 Wait for the end of the compilation to access the web URL
 

@@ -28,7 +28,7 @@
     },
     "openinframap": {
       "type": "vector",
-      "url": "http://openstreetmap.doriangaliana.fr/map.json"
+      "url": "http://map.infos-reseaux.com/map.json"
     }
   },
   "sprite": "",
