@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>A propos &mdash;Infos-Réseaux.com Carto </title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+   <div class="container">
+	<header>
+      <h1>A propos de cette cartographie</h1>
+	</header>
+    <div class="row">
+      <div class="col-lg-6">
+
+      <p class="lead"><a href="/">Cette carte</a> est une présentation des infrastructures habituellement cachées
+      et cartographiées dans la base de données <a href="http://www.openstreetmap.org/">OpenStreetMap</a>.</p>
+      <p>Ces données ne sont pas mises en valeur sur la carte OSM principale. 
+      C'est pourquoi nous avons mis ce rendu en place pour les visualiser.</p>
+
+      <h2>Comment contribuer ?</h2>
+      <p>Il est possible de compléter ou de corriger des données manquantes. Visitez <a href="https://learnosm.org">learnOSM</a> pour cela.
+      <p>
+          Si vous avez déjà quelques compétences et expérience dans la contribution OpenStreetMap,
+          visitez les pages de wiki <a href="http://wiki.openstreetmap.org/wiki/Power"> et <a href="http://wiki.openstreetmap.org/wiki/WikiProject_Telecoms">WikiProject Telecoms</a>.
+      </p>
+
+      <h2>Sécurité des réseaux souterrains</h2>
+      <p>Les réseaux souterrains sont sensibles aux dommages causés par <a href="https://twitter.com/AlertePelleteuz">des engins</a> intervenant lors de travaux à proximité.
+      <br/>Plusieurs pays ont pris des mesures pour limiter les risques, comme en France avec le dispositif DT-DICT prévoyants des déclarations des travaux prévus et une mise en contact avec les exploitants concernés.
+      <br/>Les informations données sur ce site sont fournies telles quelles, sans garentie d'exactitude et ne permettent pas de s'affranchir des procédures dont vous pourriez avoir la responsabilité.
+      <br/>Sans aucune situation d'exception, vous ne serez jamais en mesure d'entreprendre des travaux à proximité de réseaux sur la base de positions obtenures via nos services.</p>
+
+      <h2>Quelles technologies sont utilisées ?</h2>
+      <p>Les outils suivants sont mis en oeuvre pour permettre à cette carte d'exister :</p>
+      <ul>
+        <li><a href="https://www.postgresql.org/">PostgreSQL</a>/<a href="http://postgis.net/">PostGIS</a> pour le stockage
+        <li><a href="https://imposm.org/">Imposm3</a> pour filtrer et importer les données OpenStreetMap
+        <li><a href="http://tegola.io/">Tegola</a> pour générer et servir des tuiles vectorielles
+	<li><a href="https://www.mapbox.com/mapbox-gl-js/api/">Mapbox GL JS</a> pour l'interface web</li>
+      </ul>
+      
+      <p>Le fond de carte est gracieusement fourni par <a href="https://www.maptiler.com/"><img width="150px" src="img/maptiler.png"></a>.</p>
+
+      <h2>Où se trouve le code ?</h2>
+      <p>Le dépot officiel du projet est situé sur <a href="https://github.com/flacombe/oim-styles">GitHub</a>. Des mises à jour sont régulièrement apportées.</p>
+      <p>Il s'agit d'un fork d'<a href="https://www.openinframap.org">OpenInfraMap</a> dont le code est également disponible sur <a href="https://github.com/openinframap">GitHub</a>.
+      
+      <h2>Qui a fait ça ?</h2>
+      <p><a href="https://russ.garrett.co.uk">Russ</a> et <a href="https://github.com/flacombe">François</a>, passionés par les infrastructures.</p>
+      <p>Inutile de nous contacter à propos de données sous copyright ou demandes similaires, vous trouverez certainement plus d'informations
+         sur <a href="https://wiki.osmfoundation.org/wiki/Takedown_procedure">OpenStreetMap</a>.</p>         
+
+      <h2>Comment accéder aux données ?</h2>
+        <p>Toutes les données affichées viennent d'OpenStreetMap.</p>
+        <p>Vous pouvez utiliser les tuiles vectorielles produites par nos serveurs, dans les limites du raisonnable et hors production.
+        <br/>Pour une utilisation soutenue ou industrielle, merci de mettre en place votre propre plateforme.
+        <br/>Référez-vous <a href="/map.json">au fichier</a> de définition des couches.</p>
+
+        <p>Pour des extracts limités de données, rendez-vous sur <a href="https://overpass-turbo.eu/">Overpass Turbo</a> pour obtenir du GeoJson ou similaire.
+        
+        <p>Pour des volumes plus importants, vous serez obligé de traiter le jeu de données complet d'OSM ce qui est relativement complexe.</p>
+
+        <p>Dans tous les cas, pour utiliser ces données, vous devrez vous conformer aux <a href="https://www.openstreetmap.org/copyright">termes de la licence OpenStreetMap</a>
+        <br/>Cela requiert d'apposer une attribution explicite directement sur l'affichage de la carte. Une attribution de ce site et "OpenInfraMap" comportant des liens sera apprécié même si ce n'est pas obligatoire.</p>
+
+      </div>
+      <div class="col-lg-4">
+        <a class="twitter-timeline" data-width="390" data-height="800" data-dnt="true" href="https://twitter.com/InfosReseaux">Tweets Infos-Réseaux.com</a>
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
