@@ -1,13 +1,13 @@
 {
   "tilejson": "2.2.0",
   "name": "openinframap",
-  "attribution": "<a href=\"https://www.openstreetmap.org/copyright\">© OpenStreetMap contributors</a>, OpenInfraMap",
+  "attribution": "<a href=\"https://www.openstreetmap.org/copyright\">© OpenStreetMap contributors</a>, OpenInfraMap, Infos-Réseaux.com",
   "bounds": [-180, -85.0511, 180, 85.0511],
   "center": [0, 0, 0],
   "format": "pbf",
   "minzoom": 2,
   "maxzoom": 17,
-  "tiles": ["http://openstreetmap.doriangaliana.fr/tiles/{z}/{x}/{y}.pbf"],
+  "tiles": ["http://map.infos-reseaux.com/tiles/{z}/{x}/{y}.pbf"],
   "vector_layers": [
 	{"id": "power_line", "description": "Power lines and cables", "fields": {}},
 	{"id": "power_tower", "description": "Power towers and poles", "fields": {}},
