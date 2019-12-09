@@ -28,6 +28,6 @@
 	{"id": "petroleum_pipeline", "description": "Petroleum pipelines", "fields": {}},
 	{"id": "petroleum_well", "description": "Petroleum wells", "fields": {}},
 	{"id": "petroleum_site", "description": "Petroleum sites", "fields": {}},
-	{"id": "water_pipeline", "description": "Water pipelines", "fields": {}}
+	{"id": "water_ways", "description": "Artificial water ways", "fields": {}}
   ]
 }
